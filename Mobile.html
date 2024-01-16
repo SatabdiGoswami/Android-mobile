@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+    <!-- <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script> -->
+   </head>
+<style>
+    *{
+        margin: 0;padding: 0;font-family: sans-serif;scroll-behavior: smooth;scroll-snap-type: y mandatory;
+    }
+    html{
+        display: block;
+    }
+    body{
+        width: 100%;height: 100vh;overflow-x: hidden;overflow-y: scroll;scroll-behavior: smooth;scroll-snap-type: y mandatory;display: flex;align-items: center;justify-content: center;
+    }
+    a{
+        color: inherit;text-decoration: none;width: fit-content;height: fit-content;
+    }
+    button{
+        border: none;outline: none;cursor: pointer;
+    }
+    button:active{
+        animation: universal-button-animation 0.5s ease;
+    }
+    @keyframes universal-button-animation{
+        from{scale: 90%;}to{scale: 100%;}
+    }
+    ::-webkit-scrollbar{
+        width: 0;height: 0;
+    }
+    input{
+        outline: none;border: none;
+    }
+    @media (max-width:330px) {
+        html{
+            display: none;
+        }
+    }
+</style>
+<body>
+
+    <style>
+        .outer_cover{
+            width: 20pc;height: 95vh;border-radius: 15px;padding: 6px;background-color: #000000;overflow: hidden;
+        }
+        .screen{
+            width: 100%;height: 100%;background-color: #ffffff;border-radius: 10px;overflow: hidden;
+        }
+        #Home{
+            background: url(https://cdn.bhdw.net/im/mountain-nature-scenery-wallpaper-81094_w635.webp) center no-repeat;background-size: cover;
+        }
+        .camera{
+            border: 5px solid #000000;border-radius: 100%;position: absolute;top: 40px;
+        }
+        .outer_cover_options{
+             display: none;align-items: center;opacity: 0;justify-content: center;background-color: #ffffff54;overflow: hidden;height: 34px;position: absolute;transform: translateY(-100%) translateX(38px);border-radius: 7px 7px 0 0;
+        }
+        .outer_cover_options:hover{
+            opacity: 2;
+        }
+        .outer_cover_options i{
+            width: 80px;height: 100%;display: flex;align-items: center;justify-content: center;color: #242424;cursor: pointer;
+        }
+        .outer_cover_options i:hover{
+            background-color: #ffffff3f;
+        }
+        .outer_cover_options i:first-child , i:nth-child(3){
+            rotate: -90deg;height: 80px;
+        }
+
+        @media(max-width: 1071px){
+            .outer_cover{
+                width: 18pc; 
+            }
+            .outer_cover_options{
+                transform: translateY(-100%) translateX(24px);
+            }
+        }
+
+        .clock{
+            width: 60%;display: flex;color: #ffffff;align-items: center;justify-content: center;height: 44px;background-color: #ffffff3f;border-radius: 6px;
+        }
+        .clock span{
+            width: 40px;font-size: 24px;
+        }
+        .clock span:nth-child(2) , span:nth-child(4){
+            width: 10px;
+        }
+        #power_btn{
+            width: 5px;cursor: pointer;border-radius: 0 2px 2px 0;height: 3pc;background-color: #4d4d4d;transform: translateY(-10pc);
+        }
+        .screen_app_container{
+            width: 76%;height: 10pc;border-radius: 15px;background-color: #ffffff67;margin-top: 20pc;padding: 10px;display: flex;flex-wrap: wrap;
+        }
+        .app{
+            width: 60px;height: fit-content;cursor: pointer;
+        }
+        .app img{
+            width: 40px;height: 40px;border-radius: 12px;border: 1px solid #acacac;object-fit: cover;margin-top: 8px;background-color: #e4e4e4;
+        }
+        .app span{
+            font-size: 10px;font-weight: bold;width: 100%;display: flex;height: 10px;align-items: center;justify-content: center;
+        }
+        /* .screen_app_container img:active{animation: screen_app_container_img_animation 1s ease;}
+        @keyframes screen_app_container_img_animation {
+            from{scale: 90%;}to{scale: 100%;}
+        } */
+    </style>
+
+    <div class="outer_cover"> 
+
+        <div class="screen" id="Home" style="display: none;">
+<br><br><br> 
+            <center>
+                <div class="clock">
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="min">00</span>
+                    <span>:</span>
+                    <span id="sec">00</span>
+                </div> 
+            </center>
+
+            <center>
+                <div class="screen_app_container">
+                    <div id="Allocate_site_open_door" class="app" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5WDPfp5qvSpphJ_q7H7zCwM61G6FB4tcwXA&usqp=CAU"><span>Allocate site</span></div>
+                    <div id="Dares_open_door"  class="app"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyi0R7A99wNuL9KL9t3x8STqTEBNq4MAxWwg&usqp=CAU"><span>Dares</span></div>
+                    <div id="Camera_open_door" class="app"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnWJxSYzqrAm0m_FC2VtPbwudE0nW3TKgNbA&usqp=CAU"><span>Camera</span></div>
+                    <div id="Dev_open_door" class="app"><img src="\Aurora\img\souvik-Goswami.jpg"><span>Developer</span></div>
+                    <div id="Naturepara_open_door" class="app"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmrN3C4ndqwNp-Nn6qGEtJBcKPn5y3OZQ7ug&usqp=CAU"><span>Nature para</span></div>
+                    <div id="Calculator_open_door" class="app"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2u2Y6r0cy9ZHGAEn1y-N7Sy29lOxYY5L2NA&usqp=CAU"><span>Calculator</span></div>
+                    <div id="Musics_open_door" class="app"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWtILTvlKtKXGfToLSDK93f_ACR4EVY0ifWg&usqp=CAU"><span>Musics</span></div>
+                    <div id="Phone_open_door" class="app"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZM0w7Lhafp06v1oyLRDcEq3awSCcTXFV-k6y-NDhWwrWwpK9aaOOxnqsvRXoZWWmXV4g&usqp=CAU"><span>Phone</span></div>
+                </div>
+            </center>
+
+
+        </div>
+
+
+        <style>
+            #Allocate_site{
+                background-color: #ffe7c8;
+            }
+            .Allocate_site_nav{
+                width: 100%;height: 45px;background-color: #ffffff;display: flex;align-items: center;justify-content: space-between;border-bottom: 1px solid #acacac;
+            }
+            .Allocate_site_nav_title{
+                padding-left: 10px;
+            }
+            .Allocate_site_nav_options{
+                padding-right: 10px;display: flex;gap: 8px;
+            }
+            .Allocate_site_nav_options button{
+                width: 32px;height: 32px;cursor: pointer;font-size: 15px;border-radius: 100%;background-color: transparent;
+            }
+            .Allocate_site_nav_options button:hover{
+                background-color: #ffeaa4;
+            }
+            .Allocate_site_nav_menubar{
+                width: fit-content;height: 0;transition: 1s ease;overflow: hidden;border-radius: 5px;background-color: #ffffff;box-shadow: 0 0 4px 0 #747474;position: absolute;transform: translateX(-6.2pc)translateY(1.5pc);
+            }
+            .Allocate_site_nav_menubar span{
+                width: 7pc;cursor: pointer;padding: 0 10px 0 10px;height: 38px;display: flex;align-items: center;justify-content: space-between;font-size: 14px;font-weight: bold;
+            }
+            .Allocate_site_nav_menubar span:hover{
+                background-color: #ff87af;
+            }
+            .Allocate_site_nav_searchbar{
+                width: 100%;height: 45px;border-bottom: 1px solid #acacac; background-color: #ffffff;border-radius: 8px 8px 0 0;background-color: #ffffff;display: none;align-items: center;justify-content: center;
+            }
+            .Allocate_site_nav_searchbar i{
+                width: 28.5px;height: 28.5px;border-right: 1px solid #acacac;border-bottom: 1px solid #acacac;border-top: 1px solid #acacac;border-radius: 0 5px 5px 0;display: flex;align-items: center;justify-content: center;
+            }
+            .Allocate_site_nav_searchbar i:hover{
+                background-color: #ff0037;color: #ffffff;cursor: pointer;
+            }
+            .Allocate_site_nav_searchbar input{
+                width: 84%;border-radius:  5px 0 0 5px;border: 1px solid #acacac;height: 30px;padding: 0 10px 0 10px;
+            }
+            .Allocate_site_container{
+                width: 100%;padding-top: 10px; height: 88vh;overflow-x: hidden;overflow-y: scroll;scroll-behavior: smooth;scroll-snap-type: y mandatory;
+            }
+            .Allocate_site_container_card{
+                width: 85%;box-shadow: 0 0 4px 0 #4d4d4d;animation: Allocate_site_container_card_animation 0.5s ease;padding: 8px;margin-bottom: 15px;border-radius: 7px;background-color: #ffffff;
+            }
+            @keyframes Allocate_site_container_card_animation{
+                from{transform: translateY(20px);}
+                to{transform: translateY(0);}
+            }
+
+            .Allocate_site_container_card img{
+                height: 7pc;border-radius: 5px;cursor: pointer;
+            }
+            .Allocate_site_container_card_info{
+                display: flex;height: 37px;
+            }
+            .Allocate_site_container_card_info span{
+                width: 87%;height: 100%;font-size: 13px;display: flex;align-items: center;font-weight: bold;
+            }
+            .Allocate_site_container_card_info i{
+                width: 35px;height: 35px;display: flex;border-radius: 100%;cursor: pointer;align-items: center;justify-content: center;
+            }
+            #Allocate_site_nav_options_menubar_door:active{
+                animation: none;
+            }
+            #Allocate_site_nav_options_menubar_door:focus .Allocate_site_nav_menubar{
+                height: fit-content;
+            }
+        </style>
+        <div class="screen" id="Allocate_site" style="display: none;">
+
+            <div class="Allocate_site_Home">
+
+                <div class="Allocate_site_nav">
+                    <h4 class="Allocate_site_nav_title">Allocate site</h4>
+    
+                    <div class="Allocate_site_nav_options">
+                        <label for="Allocate_site_nav_searchbar_input"><button id="Allocate_site_nav_searchbar_btn" class="fa-solid fa-magnifying-glass"></button></label>
+                        <button class="fa-solid fa-bars" id="Allocate_site_nav_options_menubar_door">
+    
+                        <div class="Allocate_site_nav_menubar">
+                            <span><i class="fa-solid fa-plus"></i> Add</span>
+                            <span id="Allocate_site_profile_openbtn"><i class="fa-solid fa-user"></i> Profile</span>
+                            <span><i class="fa-solid fa-house"></i> Studios</span>
+                            <span><i class="fa-solid fa-users"></i> Artists</span>
+                            <span><i class="fa-solid fa-bookmark"></i> Saved</span> 
+                            <span><i class="fa-solid fa-clock-rotate-left"></i> History</span>
+                        </div>
+                    
+                    </button>
+    
+                    </div>
+    
+                    
+                </div>
+                <div class="Allocate_site_nav_searchbar">
+                    <input type="search" id="Allocate_site_nav_searchbar_input" placeholder="Search..">
+                    <i class="fa-solid fa-xmark" id="Allocate_site_nav_searchbar_closebtn"></i>
+                </div>
+    
+    
+                <center class="Allocate_site_container">
+    
+                    <div class="Allocate_site_container_card">
+                        <img src="\Aurora\img\kk.jpg">
+                        <div class="Allocate_site_container_card_info">
+                            <span>K.K's best performence songs || 2022 </span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="Allocate_site_container_card">
+                        <img src="\Aurora\img\arijitsingh_logo.jpg">
+                        <div class="Allocate_site_container_card_info">
+                            <span>Arijit Singh's best performence songs || 2022 </span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="Allocate_site_container_card">
+                        <img src="\Aurora\img\nehakakkar.jpg">
+                        <div class="Allocate_site_container_card_info">
+                            <span>Neha Kakkar's best performence songs || 2022 </span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="Allocate_site_container_card">
+                        <img src="\Aurora\img\sreyaghosal.jpg">
+                        <div class="Allocate_site_container_card_info">
+                            <span>Sreya Ghosal's best performence songs || 2022 </span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="Allocate_site_container_card">
+                        <img src="\Aurora\img\Oldman_Artist.jpg">
+                        <div class="Allocate_site_container_card_info">
+                            <span>Oldman's best performence songs || 2022 </span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="Allocate_site_container_card">
+                        <img src="\Aurora\img\sonunigam.jpg">
+                        <div class="Allocate_site_container_card_info">
+                            <span>Sonu Nigam's best performence songs || 2022 </span>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+    
+                    <br><br>
+    
+                </center>
+
+            </div>
+
+            <style>
+                .Allocate_site_profile_background{
+                    display: flex;align-items: end;justify-content: center;background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzA0bNLpqbLOMxwsLa1OvCHrTX76DFckL-Vg&usqp=CAU&reload=on) center no-repeat;background-size: cover;width: 100%;height: 9pc;background-color: #cacaca;border-bottom: 1px solid gray;
+                }
+                #Allocate_site_profile_user{
+                    width: 7pc;height: 7pc;object-fit: cover;transform: translateY(3.4pc);border: 2px solid gray;border-radius: 100%;background-color: #acacac;
+                }
+                .Allocate_site_profile_Home_btn_div{
+                    background-color: #ffffff;height: 40px;border-bottom: 1px solid #cacaca;display: flex;align-items: center;padding-left: 10px;
+                }
+                #Allocate_site_profile_Home_btn{
+                    width: 80px;height: 25px;display: flex;align-items: center;justify-content: center;gap: 8px;border-radius: 40px;font-size: 12px;font-weight: bold;
+                }
+                .Allocate_site_profile_user_info{
+                    width: 15pc;height: fit-content;padding: 10px;border-radius: 10px;background-color: #ffffff;margin: 35px 0 20px 20px;box-shadow: 0 0 4px 0 #000000;
+                }
+                .Allocate_site_profile_user_info span{
+                    font-size: 14px;font-weight: bold;height: 32px;width:  100%;display: flex;align-items: center;
+                }
+                .Allocate_site_profile_user_post_container{
+                    width: 100%;height: 30vh;border-top: 2px solid gray;background-color: #f1f1f1;color: gray;display: flex;align-items: center;justify-content: center;font-size: 15px;font-weight: bold;
+                }
+            </style>
+            <div class="Allocate_site_profile" style="display: none;">
+
+                <div class="Allocate_site_profile_background">
+                    <img src="/Aurora/img/souvik-Goswami.jpg" alt="Souvik Goswami" id="Allocate_site_profile_user">
+                </div>
+                <div class="Allocate_site_profile_Home_btn_div">
+                    <button id="Allocate_site_profile_Home_btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                </div>
+
+                <div class="Allocate_site_profile_user_info">
+
+                    <span>Name : Souvik Goswami</span>
+                    <span>Sex : Male</span>
+                    <span>Hobby : Painting & Sketching</span>
+                    <span>Profession : Web Developer</span>
+                    <span>State : Tripura</span>
+                    <span>Country : India</span>
+                    
+                </div>
+
+                <div class="Allocate_site_profile_user_post_container">
+
+                    <span>No post</span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <style>
+            #Dares{
+                background-color: #ddff63;overflow-x: hidden;overflow-y: scroll;scroll-behavior: smooth;scroll-snap-type: y mandatory;
+            }
+            .Dares_nav{
+                width: 100%;height: 60px;background-color: #ffffff;gap: 5px;box-shadow: 0 0 4px 0 #242424;display: flex;align-items: center;justify-content: center;
+            }
+            .Dares_card{
+                width: 88%;height: 40px;transition: 0.5s ease;border-radius: 10px;background-color: #ffc55a;margin-top: 14px;font-size: 14px;font-weight: bold;box-shadow: 0 0 5px 0 #242424;overflow: hidden;
+            }
+            .Dares_card:focus{
+                height: fit-content;
+            }
+            .Dares_card:active{
+                animation: none;
+            }
+            .Dares_card_nav{
+                width: 100%;height: 40px;display: flex;align-items: center;justify-content: center;
+            }
+            .Dares_card_text{
+                width: 100%;height: fit-content;display: flex;padding: 4px 0 10px 0;align-items: center;justify-content: center;
+            }
+        </style>
+        <center class="screen" id="Dares" style="display: none;">
+            <h4 class="Dares_nav">Dares for you <i class="fa-solid fa-heart"></i></h4>
+
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Eat a food that you don't like and your mom force you to eat</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Go and hit a person and say "Ouch! , Why it hurts"</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Jump on the bed and try to touch the ceiling</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Eat 30 whole apples contineously</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Complete a distance of 100 km</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Eat 50 burgers in 30 mins</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Try to throw a stone at a match stick from a 2 km</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Wear a colourful Clothes and walk on streets</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Feed 100 Homeless people.</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Dye your hair rainbow colour</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Do a makeup of 50 layers</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Go to a medical shop and tell them if they have a chocolate</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">go to a shop and pretend to be a very mad man</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Listen your favrate song 100 times without using a earphone or headphone</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Ask anyone a location and go there</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Clean a 10 playground</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Eat 3 green chillies with each pastry</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Spend 30 hrs disguised as a begger/homeless person</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Get full marks in your upcoming exam</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Give your mom 100 suprise gift .</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Say your sibling that he/she is Adopted , record their reaction.</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Make a cleanliness campain and clean your surrounding/town.</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">plant 1 Million plants.</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Say the word "i can do it" 1000 times</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Go to a park and give all the people sweets</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Tell anyone that you are scared because someone wants to beat you</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">start walking towards a crowded area and suddenly faint out</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Give 100 person a rose and say "I LOVE YOU"</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Hit your crush on her face</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Climb the mount everst</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Freefall from burj khalifa</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Kidnap your friend and ask his/her mother for 100k money</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Kidnap your sibling and act as you are very angry with him/her and wanna kill him/her</span>
+            </button>
+            <button class="Dares_card">
+                <div class="Dares_card_nav">Click</div>
+                <span class="Dares_card_text">Kill your enemy and jump from a high place and die</span>
+            </button>
+
+
+            <br><br><br><br><br><br>
+
+        </center>
+
+
+
+        <style>
+            #Camera{
+                background-color: #000000;display: none;align-items: end;justify-content: right;
+            }
+            #canvas{
+                cursor: pointer;transition: 0.5s ease;width: 35px;height: 35px;border-radius: 5px;border: 1px solid #000000;background-color: #cacaca;margin: 0 10px 50px 0;outline: 2px solid #ffffff;position: absolute;
+            }
+            #Camera a{
+                width: 50px;cursor: pointer;height: 50px;border-radius: 100%;background-color: #ffffff;border: 2px solid #000000;margin: 0 8pc 50px 0;outline: 2px solid #ffffff;position: absolute;
+            }
+            /* #webcam{
+                margin-top: 5pc;
+            } */
+        </style>
+        <div class="screen" id="Camera">
+            <video id="webcam" autoplay></video>
+            <a  onclick="TakeAPicture()" id="Camera_snaper"></a>
+            <canvas id="canvas"></canvas>
+         </div>
+
+
+
+
+         <style>
+            #Developer{
+                background-color: #e3ff67;
+            }
+            #Developer img{
+                width: 7pc;height: 7pc;border-radius: 50%;border: 1px solid #000000; margin: 10px 0 10px 10px;object-fit: cover;
+            }
+            .Developer_nav{
+                height: 40px;background-color: #ffffff;border: 1px solid #acacac;padding-left: 10px;display: flex;align-items: center;
+            }
+            .Developer_text{
+                width: 85%;padding: 10px;border-radius: 10px;background-color: #ffc64a91;font-size: 15px;
+            }
+         </style>
+         <div class="screen" id="Developer" style="display: none;">
+            <h4 class="Developer_nav">About</h4>
+            <img src="\Aurora\img\souvik-Goswami.jpg" alt="Developer">
+            <center>
+                <div class="Developer_text">
+                    Hey there viewer , Myself Souvik Goswami and I am the Developer of this website , I am on my learning path where i 
+                    contineously developing and creating many projects with codings , And this webpage is one of them. I am the citizen
+                    of India's state Tripura , If ou are eger to know more about me , You can follow me on Instagram were i post story and 
+                    interesting things. You can DM me i will surely try to reply you. <br><br> Insta ID :- <a href="instagram.com/souvik_arts_official">Souvik_arts_official</a>
+                    <br><br> My only motive is to create / develop more and
+                    more things and became the most expert and genius coding expert . <br><br> Despite the picture given above I am quite older
+                    then that. <br><br> Enjoy... <i class="fa-solid fa-heart"></i> 
+                </div>
+            </center>
+
+        </div>
+
+
+
+        
+
+        <style>
+            #Nature_para{
+                background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6iMa8ANBDNEHHXXl4IgmRYPPQpgKpbBXPQg&usqp=CAU) center no-repeat;
+                background-size: cover;overflow-x: hidden;overflow-y: scroll;font-size: 14px;font-weight: bold;color: #ffffff;background-color: #a04000;
+                /* background-color: #723816; */
+            }
+            .Nature_para_nav{
+                width: 90%;display: flex;align-items: center;justify-content: center;height: 35px;margin: 10px 0 12px 0;border-radius: 5px;background-color: #380c0c;color: #ffffff;font-size: 15px;font-weight: bold;
+            }
+            #Nature_para img{
+                border-radius: 6px;margin: 12px 0 12px 0;width: 90%;height: 145px;object-fit: cover;background-color: #e7e7e7; box-shadow: 0 0 10px 0 #000000;
+            }
+            .Nature_para_text_container{
+                width: 90%;height: fit-content;border-radius: 10px;
+            }
+            .Nature_para_writer{
+                height: fit-content;padding: 10px;background-color: #380c0c;
+            }
+        </style>
+        <center class="screen" id="Nature_para" style="display: none;">
+
+            <span class="Nature_para_nav">Our Nature</span>
+            
+            <div class="Nature_para_text_container">
+                    Nature, in the broadest sense, is the physical world or universe. "Nature" can refer to the phenomena of the physical world,
+                    and also to life in general. The study of nature is a large, if not the only, part of science. Although humans are part of 
+                    nature, human activity is often understood as a separate category from other natural phenomena. The word nature is borrowed 
+                    from the Old French nature and is derived from the Latin word natura, or "essential qualities, innate disposition", and in 
+                    ancient times, literally meant "birth".[2] In ancient philosophy, natura is mostly used as the Latin translation of the Greek
+                    word physis (φύσις), which originally related to the intrinsic
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH0NMqCk28W6-F-rMVKgyiXv7Zr1Fyu5wCIg&usqp=CAU">
+                    characteristics of plants, animals, and other features of the world to develop of their own accord. The concept of nature as
+                     a whole, the physical universe, is one of several expansions of the original notion;[1] it began with certain core 
+                     applications of the word φύσις by pre-Socratic philosophers (though this word had a dynamic dimension then, especially for 
+                     Heraclitus), and has steadily gained currency ever since. During the advent of modern scientific method in the last several 
+                     centuries, nature became the passive reality, organized and moved by divine laws. With the Industrial revolution, nature 
+                     increasingly became seen as the part of reality deprived from intentional intervention: it was hence considered as sacred
+                      by some traditions
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXf-evFtp7_sES_atXqLKISDLrFaVYS3VqjA&usqp=CAU">
+                       (RousseauAmerican transcendentalism) or a mere decorum for divine providence or human history (Hegel, Marx). However, a 
+                       vitalist vision of nature, closer to the presocratic one, got reborn at the same time, especially after Charles Darwin. Within
+                        the various uses of the word today, "nature" often refers to geology and wildlife. Nature can refer to the general realm of 
+                        living plants and animals, and in some cases to the processes associated with inanimate objects—the way that particular types
+                         of things exist and change of their own accord, such as the weather and geology of the Earth. It is often taken to mean the 
+                         "natural environment" or wilderness—wild animals, rocks, forest, and in general those things that have not been substantially 
+                         altered by human intervention, or which persist despite human intervention. 
+                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTymEXRmhANfc9OH4KHGJ_mnlECexzKhMZ1eg&usqp=CAU">
+                         For example, manufactured objects and human interaction generally are not considered part of nature, unless qualified 
+                         as, for example, "human nature" or "the whole of nature". This more traditional concept of natural things that can 
+                         still be found today implies a distinction between the natural and the artificial, with the artificial being understood
+                          as that which has been brought into being by a human consciousness or a human mind. Depending on the particular context
+                          , the term "natural" might also be distinguished from the unnatural or the supernatural. Earth is the only planet known 
+                          to support life, and its natural features are the subject of many fields of scientific research. Within the Solar System
+                          , it is third closest to the Sun; it is the largest terrestrial planet and the fifth largest overall.
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i0SB4NSdF359QmRhzMtseTmqFJQiHiPANw&usqp=CAU">
+                          Its most prominent climatic features are its two large polar regions, two relatively narrow temperate zones, and a 
+                          wide equatorial tropical to subtropical region. Precipitation varies widely with location, from several metres of 
+                          water per year to less than a millimetre. 71 percent of the Earth's surface is covered by salt-water oceans. The 
+                          remainder consists of continents and islands, with most of the inhabited land in the Northern Hemisphere. Earth has 
+                          evolved through geological and biological processes that have left traces of the original conditions. The outer 
+                          surface is divided into several gradually migrating tectonic plates. The interior remains active, with a thick layer 
+                          of plastic mantle and an iron-filled core that generates a magnetic field. This iron core is composed of a solid inner
+                           phase, and a fluid outer phase. Convective motion in the core generates electric currents through dynamo action, and
+                            these, in turn, generate the geomagnetic field. The atmospheric conditions have been significantly altered from the
+                             original conditions by the presence of life-forms, which create an ecological balance that stabilizes the surface 
+                             conditions. Despite the wide regional variations in climate by latitude and other geographic factors, the long-term
+                              average global climate is quite stable during interglacial periods,and variations of a degree or two of average 
+                              global temperature have historically had major effects on the ecological balance, and on the actual geography of 
+                              the Earth. Geology is the science and study of the solid and liquid matter that constitutes the Earth.
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrZCEmGnM_RdH9aKdGuB9DZDvz7J0u0niqjA&usqp=CAU">
+                              The field of geology encompasses the study of the composition, structure, physical properties, dynamics, and 
+                              history of Earth materials, and the processes by which they are formed, moved, and changed. The field is a major 
+                              academic discipline, and is also important for mineral and hydrocarbon extraction, knowledge about and mitigation 
+                              of natural hazards, some Geotechnical engineering fields, and understanding past climates and environments.
+                             The geology of an area evolves through time as rock units are deposited and inserted and deformational processes 
+                             change their shapes and locations. Rock units are first emplaced either by deposition onto the surface or intrude 
+                             into the overlying rock. Deposition can occur when sediments settle onto the surface of the Earth and later lithify
+                              into sedimentary rock, or when as volcanic material such as volcanic ash or lava flows, blanket the surface. 
+                              Igneous intrusions such as batholiths, laccoliths, dikes, and sills, push upwards into the overlying rock, and 
+                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnPKWYRMj0g65fkx1Tu_-E08Xxbu0o-5CL_A&usqp=CAU">
+                              crystallize as they intrude. After the initial sequence of rocks has been deposited, the rock units can be 
+                              deformed and/or metamorphosed. Deformation typically occurs as a result of horizontal shortening, horizontal 
+                              extension, or side-to-side (strike-slip) motion. These structural regimes broadly relate to convergent boundaries,
+                               divergent boundaries, and transform boundaries, respectively, between tectonic plates.Earth is estimated to have 
+                               formed 4.54 billion years ago from the solar nebula, along with the Sun and other planets.[12] The Moon formed 
+                               roughly 20 million years later. Initially molten, the outer layer of the Earth cooled, resulting in the solid 
+                               crust. Outgassing and volcanic activity produced the primordial atmosphere. Condensing water vapor, most or all 
+                               of which came from ice delivered by comets, produced the oceans and other water sources. The highly energetic 
+                               chemistry is believed to have produced a self-replicating molecule around 4 billion years ago.
+                               Although there is no universal agreement on the definition of life, scientists generally accept that the 
+                               biological manifestation of life is characterized by organization, metabolism, growth, adaptation, response to 
+                               stimuli, and reproduction.[47] Life may also be said to be simply the characteristic state of organisms. 
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN9BlAiZvKlYVyUYK0lapdmvaV-1dlGOQGOg&usqp=CAU">
+                               Properties common to terrestrial organisms (plants, animals, fungi, protists, archaea, and bacteria) are that 
+                               they are cellular, carbon-and-water-based with complex organization, having a metabolism, a capacity to grow, 
+                               respond to stimuli, and reproduce. An entity with these properties is generally considered life. However, not 
+                               every definition of life considers all of these properties to be essential. Human-made analogs of life may also 
+                               be considered to be life. The biosphere is the part of Earth's outer shell—including land, surface rocks, water, 
+                               air and the atmosphere—within which life occurs, and which biotic processes in turn alter or transform. From the 
+                               broadest geophysiological point of view, the biosphere is the global ecological system integrating all living 
+                               beings and their relationships, including their interaction with the elements of the lithosphere (rocks), 
+                               hydrosphere (water), and atmosphere (air). The entire Earth contains over 75 billion tons (150 trillion pounds 
+                               or about 6.8 x 1013 kilograms) of biomass (life), which lives within various environments within the biosphere.
+                               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzKrHfHYO8nBOlYY0v5_NBhzadZh5iNYIzg&usqp=CAU">
+                                Over nine-tenths of the total biomass on Earth is plant life, on which animal life depends very heavily for 
+                                its existence.[49] More than 2 million species of plant and animal life have been identified to date,[50] and 
+                                estimates of the actual number of existing species range from several million to well over 50 million.
+                                The number of individual species of life is constantly in some degree of flux, with new species appearing and 
+                                others ceasing to exist on a continual basis. The total number of species is in rapid decline.
+
+                              <br><br><br> 
+
+                            </div>
+                            <div class="Nature_para_writer">
+
+                                <h3>The End</h3><br><br>
+
+                                writer of the Para :  Souvik Goswami <br><br> Thanks for reading my para , I hope you liked it...
+                                <i class="fa-solid fa-heart"></i>
+
+                            </div>
+
+        </center>
+
+
+
+
+
+        <style>
+            .calculator_result_area{
+                padding: 10px;height: 10pc;margin-bottom: 20px;flex-wrap: wrap-reverse;overflow: hidden;word-wrap: break-word;word-break: break-all;font-size: 20px;font-weight: bold;display: flex;align-items: end;justify-content: right;
+            }
+            .calculator_value_btns{
+                display: flex;justify-content: center;gap: 15px;flex-wrap: wrap;
+            }
+            .calculator_value_btns button{
+                width: 62px;height: 62px;border-radius: 100%;background-color: #fff891;font-size: 18px;font-weight: bold;box-shadow: 0 0 4px 0 #555555;
+            }
+            .calculator_value_btns button:hover{
+                filter: brightness(95%);
+            }
+            .calculator_value_btns button:nth-child(4) ,.calculator_value_btns button:nth-child(8) , .calculator_value_btns button:nth-child(12),
+            .calculator_value_btns button:nth-child(16),.calculator_value_btns button:nth-child(20){
+                background-color: #ff8615;
+            }
+            .calculator_value_btns button:nth-child(18){
+                background-color: #f73100;color: #ffffff;
+            }
+            .calculator_value_btns button:nth-child(19){
+                background-color: #00ff0d;
+            }
+            @media(max-width:1071px){
+                .calculator_value_btns button{
+                    width: 58px;height: 58px;
+                }
+            }
+        </style>
+        <div class="screen" id="Calculator" style="display: none;">
+
+                <span class="calculator_result_area"></span>
+                <div class="calculator_value_btns">
+                    <button class="calculator_value_btn" value="1">1</button><button class="calculator_value_btn" value="2">2</button><button class="calculator_value_btn" value="3">3</button><button class="calculator_value_btn" value="+">+</button>
+                    <button class="calculator_value_btn" value="4">4</button><button class="calculator_value_btn" value="5">5</button><button class="calculator_value_btn" value="6">6</button><button class="calculator_value_btn" value="-">-</button>
+                    <button class="calculator_value_btn" value="7">7</button><button class="calculator_value_btn" value="8">8</button><button class="calculator_value_btn" value="9">9</button><button class="calculator_value_btn" value="*">x</button>
+                    <button class="calculator_value_btn" value="0">0</button><button class="calculator_value_btn" value="(">(</button><button class="calculator_value_btn" value=")">)</button><button class="calculator_value_btn" value="/"><i class="fa-solid fa-divide"></i></button>
+                    <button class="calculator_value_btn" value=".">.</button><button class="calculator_value_btn" value="C">C</button><button class="calculator_value_btn" value="=">=</button><button class="calculator_value_btn" value="%">%</button>
+                </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <style>
+            #Musics{
+                background-color: orange;overflow-x: hidden;overflow-y: scroll;
+            }
+            .musics_nav{
+                width: 90%;height: 38px;box-shadow: 0 0 5px 0 #000000;font-size: 15px;font-weight: bold;margin: 20px 0 20px 0;border-radius: 50px;background-color: #ffffff;display: flex;align-items: center;justify-content: center;
+            }
+            .Music_card{
+                width: 82%;border-radius: 10px;margin-bottom: 20px;height: fit-content;padding: 10px;background-color: #ffffff;box-shadow: 0 0 5px 0 #000000;
+            }
+            .Music_card img{
+                width: 100%;border-radius: 5px;height: 9pc;object-fit: cover;
+            }
+            .Music_card audio{
+                width: 100%;margin-top: 7px;height: 40px;
+            }
+            .Music_footer{
+                padding: 10px;background-color: #5a1313;font-size: 13px;font-weight: bold;color: #ffffff;
+            }
+        </style>
+        <center class="screen" id="Musics" style="display: none;">
+
+            <span class="musics_nav">Musics</span>
+
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAUOyXqCuVz3-0pRn1y9DExK9B5LglU9J0Kg&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio1.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjFqz9n-Z0wNc01uAu4G_PANoBPXXeE0p86txiEgTsuZbx4uIcT6NcF1r8c4MHXXMG9-g&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio2.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpJ7Eo5ZuGXBnB83o_kOmsry81Zw_M4JGfQA&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio3.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMmz-WvFMY2lyoNM2kthMKs4fkCBvLyhL8AQ&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio4.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSljjnR8uqNERH8A31F6LVQZ8gydR04j-BJHQ&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio5.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7n9usjOGmbk2Ht8fcZQJDEhdOmcmFuLkOVg&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio6.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFkuRgnl87a0jNHDprolbegrVmhq-j1bdEgg&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio7.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYKm1Qb5PMXIn6Srpl2JZONWYgMrwsJ0ohNtzzb_Y5MLV_1u3fmLK5yGAXHIwr5SYyAPY&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio8.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN0nvaxKdx9NnoMpUigEzMcJnaYcIKFoXYjQ&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio9.mp3" controls loop></audio>
+                </div>
+                <div class="Music_card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMQzy0HTlDJtSP7z7q3srDsYCpYpMlV1ltig&usqp=CAU">
+                    <audio src="\Aurora\Audios\audio10.mp3" controls loop></audio>
+                </div>
+
+                <br><br><br>
+
+                <div class="Music_footer">
+                    Here i have many cool and peaceful musics , Which can make your day wonderful. <br>
+                    More music will be added on going time.
+                </div>
+
+        </center>
+
+
+
+
+
+        <div class="outer_cover_options">
+            <i class="fa-solid fa-arrow-turn-up"></i>
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-solid fa-arrow-turn-down"></i>
+        </div>
+
+
+    </div>
+    <span class="camera"></span>
+    <span id="power_btn"></span>
+
+
+
+<script>
+
+
+    document.getElementById('Allocate_site_nav_searchbar_input').addEventListener('input',()=>{
+
+        const searchbox = document.getElementById("Allocate_site_nav_searchbar_input").value.toUpperCase();
+        const storeitems = document.querySelector(".Allocate_site_container")
+        const product = document.querySelectorAll(".Allocate_site_container_card")
+        const pname = storeitems.getElementsByTagName("span")
+
+        for( var i = 0; i < pname.length; i++ ) {
+
+            let match = product[i].getElementsByTagName('span')[0];
+
+            if(match) {
+
+                let textvalue  =  match.textContent || match.innerHTML;
+
+                if(textvalue.toUpperCase().indexOf(searchbox) > -1) {
+
+                    product[i].style.display = "";
+
+                }
+                else{
+
+                    product[i].style.display = "none";
+                
+
+                }
+
+    }
+
+}
+
+    });
+
+
+
+    
+        document.getElementById('Allocate_site_profile_openbtn').addEventListener('click',()=>{
+
+            document.querySelector('.Allocate_site_profile').style.display = 'block';
+            document.querySelector('.Allocate_site_Home').style.display = 'none';
+
+        });
+        document.getElementById('Allocate_site_profile_Home_btn').addEventListener('click',()=>{
+
+            document.querySelector('.Allocate_site_profile').style.display = 'none';
+            document.querySelector('.Allocate_site_Home').style.display = 'block';
+
+        });
+
+    document.getElementById('Allocate_site_nav_searchbar_btn').addEventListener('click',()=>{
+        document.querySelector('.Allocate_site_nav_searchbar').style.display = 'flex';
+        document.querySelector('.Allocate_site_nav').style.display = 'none';
+    });
+    document.getElementById('Allocate_site_nav_searchbar_closebtn').addEventListener('click',()=>{
+        document.querySelector('.Allocate_site_nav_searchbar').style.display = 'none';
+        document.querySelector('.Allocate_site_nav').style.display = 'flex';
+    });
+
+
+
+
+
+
+
+
+
+
+    document.getElementById('Allocate_site_open_door').addEventListener('click',()=>{
+        document.getElementById('Allocate_site').style.display = 'block';
+        document.getElementById('Camera').style.display = 'none';
+        document.getElementById('Musics').style.display = 'none';    
+        document.getElementById('Developer').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.getElementById('Calculator').style.display = 'none';   
+        document.getElementById('Dares').style.display = 'none'; 
+        document.getElementById('Nature_para').style.display = 'none';  
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    document.getElementById('Dares_open_door').addEventListener('click',()=>{
+        document.getElementById('Dares').style.display = 'block';
+        document.getElementById('Developer').style.display = 'none'; 
+        document.getElementById('Camera').style.display = 'none';
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.getElementById('Musics').style.display = 'none';    
+        document.getElementById('Calculator').style.display = 'none';   
+        document.getElementById('Nature_para').style.display = 'none';  
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    document.getElementById('Camera_open_door').addEventListener('click',()=>{
+        document.getElementById('Camera').style.display = 'flex'; 
+        webcam.start(); 
+        document.getElementById('Developer').style.display = 'none';  
+        document.getElementById('Dares').style.display = 'none';
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.getElementById('Musics').style.display = 'none';    
+        document.getElementById('Calculator').style.display = 'none';   
+        document.getElementById('Nature_para').style.display = 'none';  
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    document.getElementById('Dev_open_door').addEventListener('click',()=>{
+        document.getElementById('Developer').style.display = 'block';  
+        document.getElementById('Camera').style.display = 'none';  
+        document.getElementById('Dares').style.display = 'none';
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.getElementById('Calculator').style.display = 'none';   
+        document.getElementById('Nature_para').style.display = 'none';
+        document.getElementById('Musics').style.display = 'none';       
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    document.getElementById('Naturepara_open_door').addEventListener('click',()=>{
+        document.getElementById('Nature_para').style.display = 'block';   
+        document.getElementById('Developer').style.display = 'none';  
+        document.getElementById('Camera').style.display = 'none';  
+        document.getElementById('Dares').style.display = 'none';
+        document.getElementById('Calculator').style.display = 'none';    
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.getElementById('Musics').style.display = 'none';    
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    document.getElementById('Calculator_open_door').addEventListener('click',()=>{
+        document.getElementById('Calculator').style.display = 'block';    
+        document.getElementById('Nature_para').style.display = 'none';   
+        document.getElementById('Developer').style.display = 'none';  
+        document.getElementById('Camera').style.display = 'none';  
+        document.getElementById('Dares').style.display = 'none';
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.getElementById('Musics').style.display = 'none';     
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    document.getElementById('Musics_open_door').addEventListener('click',()=>{
+        document.getElementById('Musics').style.display = 'block';     
+        document.getElementById('Calculator').style.display = 'none';    
+        document.getElementById('Nature_para').style.display = 'none';   
+        document.getElementById('Developer').style.display = 'none';  
+        document.getElementById('Camera').style.display = 'none';  
+        document.getElementById('Dares').style.display = 'none';
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Home').style.display = 'none'; 
+        document.querySelector('.outer_cover_options').style.display = 'flex';
+    });
+    
+
+
+    document.querySelector('.outer_cover_options').addEventListener('click',()=>{
+        document.getElementById('Home').style.display = 'block'; 
+        document.querySelector('.outer_cover_options').style.display = 'none'; 
+        document.getElementById('Allocate_site').style.display = 'none'; 
+        document.getElementById('Camera').style.display = 'none';
+        webcam.stop();
+        document.getElementById('Dares').style.display = 'none'; 
+        document.getElementById('Developer').style.display = 'none'; 
+        document.getElementById('Nature_para').style.display = 'none';  
+        document.getElementById('Calculator').style.display = 'none'; 
+        document.getElementById('Musics').style.display = 'none';      
+    });
+
+
+    let b = 0;
+    document.getElementById('power_btn').addEventListener('click',()=>{
+        b = b + 1;
+        if(b % 2 != 0){ 
+            document.getElementById('Home').style.display = 'block';
+        }
+        else{ 
+            document.querySelector('.outer_cover_options').style.display = 'none';
+            document.getElementById('Home').style.display = 'none';
+            document.getElementById('Allocate_site').style.display = 'none';
+            document.getElementById('Camera').style.display = 'none';
+            webcam.stop();
+            document.getElementById('Dares').style.display = 'none';
+            document.getElementById('Developer').style.display = 'none'; 
+            document.getElementById('Nature_para').style.display = 'none'; 
+            document.getElementById('Calculator').style.display = 'none';
+            document.getElementById('Musics').style.display = 'none';        
+        }
+    });
+
+
+
+
+
+
+
+
+    let string = "";
+    let Calculator_Value_Buttons = document.querySelectorAll('.calculator_value_btn');
+
+    Array.from(Calculator_Value_Buttons).forEach((button)=>{
+     button.addEventListener('click', (e)=>{
+
+        if(e.target.value == '='){
+
+            if(document.querySelector('.calculator_result_area').innerHTML != ""){
+                string = eval(string);
+                 document.querySelector('.calculator_result_area').innerHTML = string; 
+            }
+        }
+        else{ 
+            string = string + e.target.value;
+            document.querySelector('.calculator_result_area').innerHTML = string; 
+        };
+
+        if(e.target.value == 'C'){
+            document.querySelector('.calculator_result_area').innerHTML = ""; 
+            string = "";
+        };
+
+
+        if(document.querySelector('.calculator_result_area').innerText.length >= 180){
+            document.querySelector('.calculator_result_area').style.fontSize = '15px'; 
+        }
+        else{
+            document.querySelector('.calculator_result_area').style.fontSize = '20px';
+        };
+        if(document.querySelector('.calculator_result_area').innerText.length >= 340){
+            document.querySelector('.calculator_result_area').innerHTML = ""; 
+            string = "";
+        };
+
+    })
+        });
+
+
+
+
+    let hrs = document.getElementById('hrs');
+    let min = document.getElementById('min');
+    let sec = document.getElementById('sec');
+    
+    setInterval(()=>{
+        
+        let currentTime = new Date();
+
+        hrs.innerHTML = currentTime.getHours();
+        min.innerHTML = currentTime.getMinutes();
+        sec.innerHTML = currentTime.getSeconds(); 
+
+        sessionStorage.setItem("Hours spend : " , currentTime.getHours());
+    },1000);
+
+
+
+
+class Webcam{constructor(webcamElement,facingMode="user",canvasElement=null,snapSoundElement=null){this._webcamElement=webcamElement;this._webcamElement.width=this._webcamElement.width||640;this._webcamElement.height=this._webcamElement.height||640;this._facingMode=facingMode;this._webcamList=[];this._streamList=[];this._selectedDeviceId="";this._canvasElement=canvasElement;this._snapSoundElement=snapSoundElement}get facingMode(){return this._facingMode}set facingMode(value){this._facingMode=value}get webcamList(){return this._webcamList}get webcamCount(){return this._webcamList.length}get selectedDeviceId(){return this._selectedDeviceId}getVideoInputs(mediaDevices){this._webcamList=[];mediaDevices.forEach(mediaDevice=>{if(mediaDevice.kind==="videoinput"){this._webcamList.push(mediaDevice)}});if(this._webcamList.length==1){this._facingMode="user"}return this._webcamList}getMediaConstraints(){var videoConstraints={};if(this._selectedDeviceId==""){videoConstraints.facingMode=this._facingMode}else{videoConstraints.deviceId={exact:this._selectedDeviceId}}videoConstraints.width={exact:this._webcamElement.width};videoConstraints.height={exact:this._webcamElement.height};var constraints={video:videoConstraints,audio:false};return constraints}selectCamera(){for(let webcam of this._webcamList){if(this._facingMode=="user"&&webcam.label.toLowerCase().includes("front")||this._facingMode=="enviroment"&&webcam.label.toLowerCase().includes("back")){this._selectedDeviceId=webcam.deviceId;break}}}flip(){this._facingMode=this._facingMode=="user"?"enviroment":"user";this._webcamElement.style.transform="";this.selectCamera()}async start(startStream=true){return new Promise((resolve,reject)=>{this.stop();navigator.mediaDevices.getUserMedia(this.getMediaConstraints()).then(stream=>{this._streamList.push(stream);this.info().then(webcams=>{this.selectCamera();if(startStream){this.stream().then(facingMode=>{resolve(this._facingMode)}).catch(error=>{reject(error)})}else{resolve(this._selectedDeviceId)}}).catch(error=>{reject(error)})}).catch(error=>{reject(error)})})}async info(){return new Promise((resolve,reject)=>{navigator.mediaDevices.enumerateDevices().then(devices=>{this.getVideoInputs(devices);resolve(this._webcamList)}).catch(error=>{reject(error)})})}async stream(){return new Promise((resolve,reject)=>{navigator.mediaDevices.getUserMedia(this.getMediaConstraints()).then(stream=>{this._streamList.push(stream);this._webcamElement.srcObject=stream;if(this._facingMode=="user"){this._webcamElement.style.transform="scale(-1,1)"}this._webcamElement.play();resolve(this._facingMode)}).catch(error=>{console.log(error);reject(error)})})}stop(){this._streamList.forEach(stream=>{stream.getTracks().forEach(track=>{track.stop()})})}snap(){if(this._canvasElement!=null){if(this._snapSoundElement!=null){this._snapSoundElement.play()}this._canvasElement.height=this._webcamElement.scrollHeight;this._canvasElement.width=this._webcamElement.scrollWidth;let context=this._canvasElement.getContext("2d");if(this._facingMode=="user"){context.translate(this._canvasElement.width,0);context.scale(-1,1)}context.clearRect(0,0,this._canvasElement.width,this._canvasElement.height);context.drawImage(this._webcamElement,0,0,this._canvasElement.width,this._canvasElement.height);let data=this._canvasElement.toDataURL("image/png");return data}else{throw"canvas element is missing"}}}
+
+
+    const WebcamElement = document.getElementById('webcam');
+    const CanvasElement = document.getElementById('canvas');
+    const  webcam = new Webcam(WebcamElement , "user" , CanvasElement);
+    // webcam.start();  
+
+    function TakeAPicture(){
+ 
+        document.getElementById("Camera_snaper").href = webcam.snap();
+
+    };
+
+    let c = 0;
+    CanvasElement.addEventListener('click',()=>{
+        c = c + 1;
+        if(c % 2 != 0){
+            document.getElementById('webcam').style.display = 'none';
+            document.getElementById('Camera_snaper').style.display = 'none';
+            CanvasElement.style.width = '15pc';
+            CanvasElement.style.height = '15pc';
+            CanvasElement.style.margin = '0 2.5pc 15pc 0';
+        }
+        else{
+            document.getElementById('webcam').style.display = 'block';
+            document.getElementById('Camera_snaper').style.display = 'block';
+            CanvasElement.style.width = '35px';
+            CanvasElement.style.height = '35px';
+            CanvasElement.style.margin = '0 10px 50px 0';
+        }
+    });
+
+
+    
+</script>
+</body>
+</html>
